@@ -1,0 +1,183 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  font-family: "Pt-sans-caption", sans-serif;
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.page {
+  background: orange;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.page__title {
+  color: white;
+  margin-bottom: 10px;
+}
+
+form {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 10px;
+}
+
+form h2 {
+  margin-bottom: 10px;
+}
+
+.choose__block {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.choose__block li {
+  flex: 1;
+  border: 1px solid orange;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.choose__block .active-item {
+  background: orange;
+  color: white;
+}
+
+.choose__block li input {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.physical__params {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.physical__params .item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.physical__params .item input {
+  border: 1px solid black;
+  max-width: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.physical__params .item input::placeholder {
+  color: black;
+}
+
+.physical__params .item label {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.physical__params .item span {
+  font-size: 15px;
+  color: gray;
+}
+
+.physical__activity legend {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.physical__activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.physical__activity-list div {
+  margin-bottom: 5px;
+}
+
+.physical__activity-list label {
+  font-weight: 700;
+}
+
+.physical__activity-list input:checked {
+  border: 1px solid orange;
+}
+
+.physical__activity-list p {
+  color: gray;
+}
+
+.btns {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.btns .submit {
+  background: orange;
+  padding: 10px 20px;
+  border-radius: 7px;
+  color: white;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.popup__content {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.popup__content h2 {
+  margin-bottom: 10px;
+}
+
+.popup__content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.popup.visible {
+  opacity: 1;
+  visibility: visible;
+}

@@ -1,34 +1,45 @@
-// тут в переменные мы записали наши кнопки.
 const resetButton = document.querySelector(".reset");
 const submitButton = document.querySelector(".submit");
-// получаем в переменную нашу форму и все данные которые в ней есть.
-// подробнее можно посмотреть тут https://learn.javascript.ru/form-elements
+const popup = document.querySelector(".popup");
+
 const caloriesForm = document.forms.counter;
+const genders = caloriesForm
+  .querySelector(".choose__block")
+  .querySelectorAll("li");
 
 // span с калориями
 const normalCal = document.querySelector(".normal_cal");
 
+// Выбор Гендера
+genders.forEach((gender) => {
+  gender.addEventListener("click", (e) => {
+    if (e.target === gender) {
+      genders.forEach((currnetGender) => {
+        currnetGender.classList.remove("active-item");
+        e.target.classList.add("active-item");
+      });
+    }
+  });
+});
+
 // вешаем событие щелчка по кнопки внутри пример функции
 resetButton.addEventListener("click", (event) => {
-    alert("Reset!");
+  alert("Reset!");
 
-    // нужно чтобы страница после нажатия не обновлялась
-    event.preventDefault();
+  event.preventDefault();
 });
 
 submitButton.addEventListener("click", (event) => {
-    alert("Submit!");
+  console.log(genders[0].classList.contains("active-item"));
 
-    // эту строчку можно будет убрать, она для теста
-    // пример того как можно получить значения в форме. У нас два инпута с именем gender
-    // поэтому внутри массива gender мы проверяем поле checked. Нажмите "Рассчитать" и проверьте
-    console.log(caloriesForm.gender[0].checked);
-
-    // тоже можно будет удалить, пример как менять верстку из JS
-    // нажмите "Рассчитать" и проверьте
-    normalCal.textContent = "999999999999";
-
-    // нужно чтобы страница после нажатия не обновлялась
-    event.preventDefault();
+  normalCal.textContent = "999999999999";
+  popup.classList.add("visible");
+  event.preventDefault();
 });
 
+popup.addEventListener("click", (e) => {
+  if (e.target.closest("div") !== popup.querySelector(".popup__content")) {
+    popup.classList.remove("visible");
+    console.log(e.target.closest);
+  }
+});
